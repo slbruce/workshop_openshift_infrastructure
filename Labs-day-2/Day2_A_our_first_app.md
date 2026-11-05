@@ -175,11 +175,11 @@ Creating a Route is a straightforward process. You simply "expose" the internal 
 Since your Service name is `mapit`, you can expose it to the outside world with a single command:
 
 ```bash
-oc expose service mapit
+oc create route edge --service=mapit
 ```
 
 **Expected Output:**
-> `route/mapit exposed`
+> `route.route.openshift.io/mapit created`
 
 <br>
 
@@ -191,7 +191,7 @@ oc get route
 ```
 
 ```bash
-oc get route mapit -o jsonpath='{.spec.host}' | sed 's/^/http:\/\//'
+oc get route mapit -o jsonpath='{.spec.host}' | sed 's/^/https:\/\//'
 ```
 
 click on the Url Link
