@@ -157,7 +157,7 @@ oc adm policy add-role-to-user edit -z maps-ci
 See the binding you just created:
 
 ```bash
-oc get rolebindings | grep maps-ci
+oc get rolebindings | grep edit
 ```
 
 <br>
@@ -185,7 +185,7 @@ oc auth can-i delete rolebindings \
 #### 🛠️ Exercise: See It in the Console
 
 1. Navigate to **User Management → RoleBindings** (project `app-management`).
-2. Find the bindings for `maps-web-sa` and `maps-ci` — every permission you granted today is visible, auditable, and deletable right here.
+2. Find the bindings for `maps-web-sa` and `maps-ci`.  Sort on `Subject name` — every permission you granted today is visible, auditable, and deletable right here.
 
 ---
 
