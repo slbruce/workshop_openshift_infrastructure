@@ -58,8 +58,12 @@ Wait until `PROGRESSING` returns to `False` (~2–3 min), then `Ctrl+C`.
 
 In **Terminal B**:
 
+We have to use a different login context so that the two windows do not clash.
+
 ```bash
-oc login -u dana -p redhat123 "$(oc whoami --show-server)"
+export CLUSTER_URL=$(oc whoami --show-server)
+export KUBECONFIG=/tmp/kubeconfig-user-dana
+oc login -u dana -p redhat123 "$CLUSTER_URL"
 ```
 
 **Expected:** `Login successful.` — followed by `You don't have any projects.`
@@ -120,7 +124,7 @@ Two numbers run everything: **request** = the scheduler's guaranteed reservation
 
 #### 🛠️ Exercise: Give mapit Its Numbers (Web Console)
 
-Dana can do this herself — in the **console, logged in as dana**:
+Dana can do this herself — in the **console, logged in as dana (in a new incognito window)**:
 
 1. Navigate to **Workloads → Deployments** in project `app-management`, click `mapit`.
 2. From the **Actions** menu, select **Edit resource limits**.
@@ -134,6 +138,7 @@ Dana can do this herself — in the **console, logged in as dana**:
 Verify from **Terminal B** — including what Kubernetes thinks of the pod's honesty:
 
 ```bash
+oc project app-management
 oc get pods -l deployment=mapit -o jsonpath='{.items[0].status.qosClass}{"\n"}'
 ```
 
@@ -174,7 +179,7 @@ oc get events --sort-by=.lastTimestamp | grep -i quota | tail -3
 
 <br>
 
-📸 Now the good part — in the **console**: **Administration → ResourceQuotas → maps-budget**. The usage gauges are pinned at max. This page is where devs will *see* their budget instead of asking you.
+📸 Now the good part — in the **console (as Dana)**: **Administration → ResourceQuotas → maps-budget**. The usage gauges are pinned at max. This page is where devs will *see* their budget instead of asking you.
 
 <br>
 
