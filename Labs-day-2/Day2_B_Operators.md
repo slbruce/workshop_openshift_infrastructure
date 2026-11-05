@@ -90,7 +90,7 @@ Installation is a few clicks. Behind the scenes, **OLM** (Operator Lifecycle Man
 
 1. On the **CloudNativePG** page, click **Install**.
 2. Keep the defaults:
-   * **Update channel:** the latest `stable` channel offered
+   * **Update channel:** the latest `stable-v1` channel offered
    * **Installation mode:** All namespaces on the cluster
    * **Installed Namespace:** `openshift-operators`
    * **Update approval:** Automatic
@@ -182,9 +182,7 @@ oc get clusters.postgresql.cnpg.io maps-db
 
 #### 🛠️ Exercise: See It in the Console
 
-1. Navigate to **Workloads → Topology** and make sure the `app-management` project is selected at the top.
-2. You should see `mapit` **and** the `maps-db` pods side by side — the whole story of the day in one picture.
-3. Navigate to **Ecosystem → Installed Operators → CloudNativePG**, open the **Cluster** tab, and click `maps-db` — the console renders your Custom Resource with live status, conditions, and events.
+1. Navigate to **Ecosystem → Installed Operators → CloudNativePG**, open the **Cluster** tab, and click `maps-db` — the console renders your Custom Resource with live status, conditions, and events.
 
 > 💡 **Administrative Perspective:**
 > Notice what the Operator created for you: Pods, Services, Secrets, and **PersistentVolumeClaims** — run `oc get pvc` for a sneak peek. Where does that storage actually come from? Hold that thought until this afternoon. 😉
