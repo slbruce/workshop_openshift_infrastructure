@@ -46,9 +46,9 @@ You should see roughly 30 operators, all showing `AVAILABLE: True` and `DEGRADED
 
 Now see the same thing in the **Web Console**:
 
-1. Log in to the web console as `kubeadmin`.
+1. Log in to the web console as `admin`.
 2. Navigate to **Administration → Cluster Settings**.
-3. Select the **ClusterOperators** tab.
+3. Select the **ClusterOperators** tab. Do not worry about the "Cannot update" warning if you have it
 
 <br>
 
