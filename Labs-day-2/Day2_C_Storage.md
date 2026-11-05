@@ -181,13 +181,6 @@ oc exec deployment/mapit -- cat /data/proof.txt
 
 > 🏆 **The pod is cattle. The claim is the pet.** Pods come and go; the PVC — and the data on it — stays. This is the exact mechanism protecting the Maps team's database.
 
-<br>
-
-#### 🛠️ Exercise (Bonus, if time allows): See It in the Topology
-
-1. Navigate to **Workloads → Topology** in project `app-management`.
-2. Click the `mapit` node and open the **Resources** tab in the side panel — the PVC is now listed as part of the application.
-
 ---
 <br><br>
 
